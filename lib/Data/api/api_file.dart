@@ -9,5 +9,5 @@ class Api{
          dio.interceptors.add(PrettyDioLogger());
       }
 
-      Dio get send => dio;
+      Dio get sendRequest => dio;
 }
