@@ -1,14 +1,14 @@
 import '../Data/my_user_model.dart';
 
-abstract class PostSate{}
+abstract class PostApiState{}
 
-class PostLoadingState extends PostSate{}
-class PostLoadedState extends PostSate{
-  final List<MyAPI>  post;
+class PostLoadingState extends PostApiState{}
 
-  PostLoadedState(this.post);
+class PostLoadedState extends PostApiState{
+  final List<MyAPI>  posts;
+  PostLoadedState(this.posts);
 }
-class PostErrorState extends PostSate{
+class PostErrorState extends PostApiState{
    final String errorMSg;
 
    PostErrorState(this.errorMSg);

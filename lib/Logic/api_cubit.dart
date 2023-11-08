@@ -3,15 +3,17 @@ import 'package:api_calling_with_bloc/Data/post_repository.dart';
 import 'package:api_calling_with_bloc/Logic/api_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+class PostBlocCubit extends Cubit<PostApiState>{
+    PostBlocCubit ():super(PostLoadingState()) {
+      fetchPosts();
+    }
 
-class PostCubit extends Cubit{
-    PostCubit ():super(PostLoadingState())
-    {
-       PostRepository postRepository = PostRepository();
+       PostApiRepository postRepository = PostApiRepository();
            void fetchPosts() async{
               try{
-                   List<MyAPI> post =await postRepository.fetchPosts();
-                   emit(PostLoadedState(post));
+                   List <MyAPI> posts = await postRepository.fetchPosts();
+
+                   emit(PostLoadedState(posts));
 
               }
               catch(ex){
@@ -20,4 +22,4 @@ class PostCubit extends Cubit{
            }
     }
 
-}
+

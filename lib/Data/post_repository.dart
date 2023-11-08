@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'api/api_file.dart';
 import 'my_user_model.dart';
 
-class PostRepository {
+class PostApiRepository {
   Api api = Api();
   Future<List<MyAPI>> fetchPosts() async {
     try {
@@ -12,7 +12,7 @@ class PostRepository {
       return postMaps.map((postMaps) => MyAPI.fromJson(postMaps)).toList();
     } catch (ex) {
       throw Exception();
-      rethrow;
+
     }
   }
 }
